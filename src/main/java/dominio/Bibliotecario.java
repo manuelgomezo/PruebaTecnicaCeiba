@@ -44,7 +44,7 @@ public class Bibliotecario {
 	}
 
 	/**
-	 * Verifica a trav�s de una consulta si el ISBN entrado ya existe en el repositorio de prestamo
+	 * Verifica a través de una consulta si el ISBN entrado ya existe en el repositorio de prestamo
 	 * Es decir, si ya esta prestado.
 	 * @param isbn String a verificar
 	 * @return Retorna TRUE si el libro ya está prestado, FALSE de lo contrario.

@@ -8,11 +8,11 @@ public class Util {
 	private Util() { }
 
 	/**
-	 * Calcula la fecha sumandole n dias con la restricci�n de que
-	 * "Si la fecha de entrega cae un domingo deber� ser el siguiente d�a h�bil. 
-	 * @param actual Fecha actual
-	 * @param dias Entero numero de dias que quiere sumar
-	 * @return Retorna la fecha agregandole el numero de dias y teniendo en cuenta la restricci�n de los domingos
+	 * Calcula la fecha sumandole n dias con la restricción de que
+	 * "Si la fecha de entrega cae un domingo deberá ser el siguiente día hábil. 
+	 * @param diaHoy Fecha actual
+	 * @param dias Entero número de dias que quiere sumar
+	 * @return Retorna la fecha agregandole el numero de dias y teniendo en cuenta la restricción de los domingos
 	 * 
 	 */	
 	public static LocalDate calcularFecha(LocalDate diaHoy, int dias) {
@@ -36,7 +36,7 @@ public class Util {
 	/**
 	 *  Hace uso de alReves para invertir el string entrado
 	 *  y si el invertido es igual al entrado entonces retorna true. 
-	 *  @param isbn String a verificar si es palindromo
+	 *  @param cadena String a verificar si es palindromo
 	 *  @return Devuelve true si el string ingresado es palindromo
 	 */
 	public static boolean esPalindromo(String cadena) {
@@ -46,7 +46,7 @@ public class Util {
 
 	/**
 	 * Invierte un string "dato" entrado.
-	 * @param dato String que se quiere invertir
+	 * @param cadena String que se quiere invertir
 	 * @return Devuelve el string invertido
 	 */	
 	private static String alReves(String cadena) {
@@ -57,8 +57,9 @@ public class Util {
 	}
 
 	/**
-	 * Verifica si la suma de los digitos del string entrado es mayor a 30
-	 * @param isbn String a verificar si la suma de los digitos del string entrado es mayor a 30
+	 * Verifica si la suma de los digitos del string entrado es mayor a i
+	 * @param cadena String a verificar si la suma de los digitos del string entrado es mayor a i
+	 * @param i número a comparar con la suma de los digitos
 	 * @return Retorna TRUE si los digitos numericos del string isbn suman mas de 30
 	 * 
 	 */	
