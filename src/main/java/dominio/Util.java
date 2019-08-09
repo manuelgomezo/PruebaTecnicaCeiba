@@ -8,6 +8,9 @@ import java.util.Date;
 import org.junit.Test;
 
 public class Util {
+	
+	private Util() { }
+	
 	/**
 	 * Calcula la fecha sumandole n dias con la restricción de que
 	 * "Si la fecha de entrega cae un domingo deberá ser el siguiente día hábil. 
@@ -19,7 +22,7 @@ public class Util {
 	public static Date calcularFecha(Date actual, int dias) {
 		int diasAgregados = dias - 1;
 		Calendar c = Calendar.getInstance();
-        c.setTime(actual);
+		c.setTime(actual);
         
 		while(diasAgregados > 0){
 			if(c.get(Calendar.DAY_OF_WEEK) == 7) {
