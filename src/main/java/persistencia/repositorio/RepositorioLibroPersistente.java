@@ -1,8 +1,9 @@
 package persistencia.repositorio;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 import dominio.Libro;
 import dominio.repositorio.RepositorioLibro;
 import persistencia.builder.LibroBuilder;
@@ -35,19 +36,16 @@ public class RepositorioLibroPersistente implements RepositorioLibro, Repositori
 		entityManager.persist(LibroBuilder.convertirAEntity(libro));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public LibroEntity obtenerLibroEntityPorIsbn(String isbn) {
 		
 		Query query = entityManager.createNamedQuery(LIBRO_FIND_BY_ISBN);
 		query.setParameter(ISBN, isbn);
-		
-		List results = query.getResultList();
-		LibroEntity libroEncontrado = null;
-		if(!results.isEmpty()){
-			libroEncontrado = (LibroEntity) results.get(0);
-		}
 
-		return libroEncontrado;
+		List resultList = query.getResultList();
+
+		return !resultList.isEmpty() ? (LibroEntity) resultList.get(0) : null;
 	}
 
 }

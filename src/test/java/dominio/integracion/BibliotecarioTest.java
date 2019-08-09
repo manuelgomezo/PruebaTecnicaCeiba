@@ -2,6 +2,8 @@ package dominio.integracion;
 
 import static org.junit.Assert.fail;
 
+import java.text.ParseException;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -124,5 +126,22 @@ public class BibliotecarioTest {
 			// assert
 			Assert.assertEquals(Bibliotecario.EL_LIBRO_ES_PALINDROMO, e.getMessage());
 		}
+	}
+	
+	@Test
+	public void prestarLibroConUsuario() throws ParseException {
+		// arrange
+		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).build();
+		
+		repositorioLibros.agregar(libro);
+		
+		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros, repositorioPrestamo);
+
+		// act
+		blibliotecario.prestar(libro.getIsbn(), USUARIO);
+
+		// assert
+		Assert.assertNotNull(repositorioPrestamo.obtener(libro.getIsbn()));
+		Assert.assertEquals(repositorioPrestamo.obtener(libro.getIsbn()).getNombreUsuario(), USUARIO);
 	}
 }

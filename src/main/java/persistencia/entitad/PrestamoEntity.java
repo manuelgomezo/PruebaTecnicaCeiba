@@ -1,6 +1,6 @@
 package persistencia.entitad;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,9 +22,9 @@ public class PrestamoEntity {
 	@JoinColumn(name="ID_LIBRO",referencedColumnName="id")
 	private LibroEntity libro;
 	
-	private Date fechaSolicitud;
+	private LocalDate fechaSolicitud;
 	
-	private Date fechaEntregaMaxima;
+	private LocalDate fechaEntregaMaxima;
 	
 	private String nombreUsuario;
 	
@@ -44,19 +44,27 @@ public class PrestamoEntity {
 		this.libro = libroEntity;
 	}
 	
-	public Date getFechaSolicitud() {
+	public LocalDate getFechaSolicitud() {
 		return fechaSolicitud;
 	}
 	
-	public void setFechaSolicitud(Date fechaSolicitud) {
+	public void setFechaSolicitud(LocalDate fechaSolicitud) {
 		this.fechaSolicitud = fechaSolicitud;
 	}
 	
-	public Date getFechaEntregaMaxima() {
+	public LocalDate getFechaEntregaMaxima() {
 		return fechaEntregaMaxima;
+	}
+	
+	public void setFechaEntregaMaxima(LocalDate fechaEntregaMaxima) {
+		this.fechaEntregaMaxima = fechaEntregaMaxima;
 	}
 	
 	public String getNombreUsuario() {
 		return nombreUsuario;
+	}
+	
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 }

@@ -1,7 +1,6 @@
 package dominio;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 import dominio.excepcion.PrestamoException;
 import dominio.repositorio.RepositorioLibro;
@@ -13,7 +12,7 @@ public class Bibliotecario {
 
 	public static final String EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE = "El libro no se encuentra disponible";
 	public static final String EL_LIBRO_NO_EXISTE = "El libro no existe en la biblioteca.";
-	public static final String EL_LIBRO_ES_PALINDROMO =  "Los libros palíndromos solo se pueden utilizar en la biblioteca.";
+	public static final String EL_LIBRO_ES_PALINDROMO =  "Los libros palï¿½ndromos solo se pueden utilizar en la biblioteca.";
 
 	private RepositorioLibro repositorioLibro;
 	private RepositorioPrestamo repositorioPrestamo;
@@ -33,27 +32,28 @@ public class Bibliotecario {
 		if(Util.esPalindromo(isbn)){
 			throw new PrestamoException(EL_LIBRO_ES_PALINDROMO);
 		}
-		
+
 		Libro libro = this.repositorioLibro.obtenerPorIsbn(isbn);
-		Date diaHoy = new Date();
+		
+		LocalDate diaHoy = LocalDate.now();
 		if(Util.sumaDigitosMayorA(isbn, 30)){
 			this.repositorioPrestamo.agregar(new Prestamo(diaHoy, libro, Util.calcularFecha(diaHoy, 15), nombreUsuario));
 		} else {
 			this.repositorioPrestamo.agregar(new Prestamo(diaHoy, libro, null, nombreUsuario));
 		}
 	}
-	
+
 	/**
-	 * Verifica a través de una consulta si el ISBN entrado ya existe en el repositorio de prestamo
+	 * Verifica a travï¿½s de una consulta si el ISBN entrado ya existe en el repositorio de prestamo
 	 * Es decir, si ya esta prestado.
 	 * @param isbn String a verificar
-	 * @return Retorna TRUE si el libro ya está prestado, FALSE de lo contrario.
+	 * @return Retorna TRUE si el libro ya estÃ¡ prestado, FALSE de lo contrario.
 	 * 
-	*/	
+	 */	
 	public boolean esPrestado(String isbn) {
 		Libro libro = this.repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn);
-    	return (libro!=null);
+		return (libro!=null);
 	}
-	
+
 
 }

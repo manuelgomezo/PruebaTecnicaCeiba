@@ -1,27 +1,27 @@
 package dominio;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Prestamo {
 
-	private Date fechaSolicitud;
+	private LocalDate fechaSolicitud;
 	private Libro libro;
-	private Date fechaEntregaMaxima;
+	private LocalDate fechaEntregaMaxima;
 	private String nombreUsuario;
 
 	public Prestamo(Libro libro) {
-		this.fechaSolicitud = new Date();
+		this.fechaSolicitud = LocalDate.now();
 		this.libro = libro;
 	}
 	
-	public Prestamo(Date fechaSolicitud, Libro libro, Date fechaEntregaMaxima, String nombreUsuario) {
+	public Prestamo(LocalDate fechaSolicitud, Libro libro, LocalDate fechaEntregaMaxima, String nombreUsuario) {
 		this.fechaSolicitud = fechaSolicitud;
 		this.libro = libro;
 		this.fechaEntregaMaxima = fechaEntregaMaxima;
 		this.nombreUsuario = nombreUsuario;
 	}
 
-	public Date getFechaSolicitud() {
+	public LocalDate getFechaSolicitud() {
 		return fechaSolicitud;
 	}
 
@@ -29,7 +29,7 @@ public class Prestamo {
 		return libro;
 	}
 
-	public Date getFechaEntregaMaxima() {
+	public LocalDate getFechaEntregaMaxima() {
 		return fechaEntregaMaxima;
 	}
 

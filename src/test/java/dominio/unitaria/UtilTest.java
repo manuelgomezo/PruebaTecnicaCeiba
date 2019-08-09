@@ -5,8 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.junit.Test;
 
@@ -33,24 +32,23 @@ public class UtilTest {
 	@Test
 	public void fechaDeEntregaTest() throws ParseException {
 		// arrange
-		SimpleDateFormat formateoFecha = new SimpleDateFormat("dd/MM/yyyy");
 		int dias = 15;
-		Date fecha1 = formateoFecha.parse("24/05/2017");
-		Date fecha2 = formateoFecha.parse("26/05/2017");
-		Date fecha3 = formateoFecha.parse("8/08/2019");
-		Date fecha4 = formateoFecha.parse("16/08/2019");
+		LocalDate fecha1 = LocalDate.of(2017, 5, 24);
+		LocalDate fecha2 = LocalDate.of(2017, 5, 26);
+		LocalDate fecha3 = LocalDate.of(2019, 8, 8);
+		LocalDate fecha4 = LocalDate.of(2019, 8, 16);
 		
 		// act
-		Date fechaEntrega1 = Util.calcularFecha(fecha1, dias);
-		Date fechaEntrega2 = Util.calcularFecha(fecha2, dias);
-		Date fechaEntrega3 = Util.calcularFecha(fecha3, dias);
-		Date fechaEntrega4 = Util.calcularFecha(fecha4, dias);
+		LocalDate fechaEntrega1 = Util.calcularFecha(fecha1, dias);
+		LocalDate fechaEntrega2 = Util.calcularFecha(fecha2, dias);
+		LocalDate fechaEntrega3 = Util.calcularFecha(fecha3, dias);
+		LocalDate fechaEntrega4 = Util.calcularFecha(fecha4, dias);
 		
 		//assert
-		assertEquals(fechaEntrega1, formateoFecha.parse("09/06/2017"));
-		assertEquals(fechaEntrega2, formateoFecha.parse("12/06/2017"));
-		assertEquals(fechaEntrega3, formateoFecha.parse("24/08/2019"));
-		assertEquals(fechaEntrega4, formateoFecha.parse("2/09/2019"));
+		assertEquals(fechaEntrega1, LocalDate.of(2017, 6, 9));
+		assertEquals(fechaEntrega2, LocalDate.of(2017, 6, 12));
+		assertEquals(fechaEntrega3, LocalDate.of(2019, 8, 24));
+		assertEquals(fechaEntrega4, LocalDate.of(2019, 9, 2));
 	}
 	
 	@Test
