@@ -104,6 +104,7 @@ public class BibliotecarioTest {
 		}
 	}
 	
+
 	@Test
 	public void prestarLibroPalindromo() {
 
