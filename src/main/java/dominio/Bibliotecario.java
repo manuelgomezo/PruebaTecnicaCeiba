@@ -12,7 +12,7 @@ public class Bibliotecario {
 
 	public static final String EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE = "El libro no se encuentra disponible";
 	public static final String EL_LIBRO_NO_EXISTE = "El libro no existe en la biblioteca.";
-	public static final String EL_LIBRO_ES_PALINDROMO =  "Los libros pal�ndromos solo se pueden utilizar en la biblioteca.";
+	public static final String EL_LIBRO_ES_PALINDROMO =  "Los libros palíndromos solo se pueden utilizar en la biblioteca.";
 
 	private RepositorioLibro repositorioLibro;
 	private RepositorioPrestamo repositorioPrestamo;
