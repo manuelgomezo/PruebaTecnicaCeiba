@@ -13,7 +13,9 @@ public class Bibliotecario {
 	public static final String EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE = "El libro no se encuentra disponible";
 	public static final String EL_LIBRO_NO_EXISTE = "El libro no existe en la biblioteca.";
 	public static final String EL_LIBRO_ES_PALINDROMO =  "Los libros palíndromos solo se pueden utilizar en la biblioteca.";
-
+	public static final int NUMERO_DIAS_SUMA_MAYOR_A_30 = 15;
+	public static final int SUMA_DIGITOS = 30;
+	
 	private RepositorioLibro repositorioLibro;
 	private RepositorioPrestamo repositorioPrestamo;
 
@@ -36,8 +38,9 @@ public class Bibliotecario {
 		Libro libro = this.repositorioLibro.obtenerPorIsbn(isbn);
 		
 		LocalDate diaHoy = LocalDate.now();
-		if(Util.sumaDigitosMayorA(isbn, 30)){
-			this.repositorioPrestamo.agregar(new Prestamo(diaHoy, libro, Util.calcularFecha(diaHoy, 15), nombreUsuario));
+		
+		if(Util.sumaDigitosMayorA(isbn, SUMA_DIGITOS)){
+			this.repositorioPrestamo.agregar(new Prestamo(diaHoy, libro, Util.calcularFecha(diaHoy, NUMERO_DIAS_SUMA_MAYOR_A_30), nombreUsuario));
 		} else {
 			this.repositorioPrestamo.agregar(new Prestamo(diaHoy, libro, null, nombreUsuario));
 		}
