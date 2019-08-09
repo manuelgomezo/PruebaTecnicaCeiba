@@ -24,5 +24,5 @@ public class Libro {
 	public String getIsbn() {
 		return isbn;
 	}
-	
+
 }
